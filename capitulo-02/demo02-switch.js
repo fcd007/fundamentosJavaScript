@@ -1,6 +1,6 @@
 //vamos usar um pouco do nodejs e javascript juntos
-// const readLine = require('readline');
-// const terminal = readLine.createInterface({
+// const readline = require('readline');
+// const terminal = readline.createInterface({
 //     //definir o modo de entrada via terminal
 //     input: process.stdin, 
 //     //todo texto de saída sairá no terminal
