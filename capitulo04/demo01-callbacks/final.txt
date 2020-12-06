@@ -1,0 +1,13 @@
+Javascript
+linguagem 
+poderosa
+
+callbacks são legais, 
+só tome 
+cuidado com as 
+resoluções delas.
+
+opa estamos
+de volta
+para 
+aprender
