@@ -69,12 +69,12 @@ class JogoDaMemoria {
             case 0:
                 //adicionar a escolha a uma lista, esperando pela próxima
                 //vez que clicar
-                this.heroisSelecionados.push()
+                this.heroisSelecionados.push(item)
                 break;
             case 1:
                 // se a quantidade for 1 o usuário só pode escolher mais um
                 //vamos obter o primeiro item da lista
-                const[opcao1] = this.heroisSelecionados
+                const [opcao1] = this.heroisSelecionados
                 //zerar a lista anterior
                 this.heroisSelecionados = []
                 //conferimos se os nomes e ids batem conforme o esperado
@@ -87,7 +87,7 @@ class JogoDaMemoria {
 
                 alert('Combinação incorreta!')
                 //fim do case
-                break;
+            break;
         }
     }
 

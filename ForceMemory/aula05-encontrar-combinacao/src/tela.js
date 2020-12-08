@@ -5,7 +5,7 @@ class Tela {
     static obterCodigoHTML(item) {
         return`
         <div class="col-md-3">
-            <div class="card" style="width: 12rem;" onclick="window.verificarSelecao('${item.id}', '${item.nome}')">
+            <div class="card" style="width: 12rem;" onclick="window.verificarSelecao('${item.id}','${item.nome}')">
                 <img src="${item.img}" name="${item.nome} class="card-img-top" alt="...">
             </div>
             <br />
