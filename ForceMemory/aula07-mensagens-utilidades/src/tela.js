@@ -1,8 +1,17 @@
+//metodos estáticos não podem acessar o 'this'
+//nao iremos colocar o this  no construtor 
+const util = Util
+
 const ID_CONTEUDO = "conteudo"
 const ID_BTN_JOGAR = "jogar"
+
 //mensagem de alerta acerto ou erro
 const ID_MENSAGEM = "mensagem"
 const CLASSE_INVISIBLE = "invisible"
+
+//mostrar carregando do jogo
+const ID_CARREGANDO = "carregando"
+const ID_CONTADOR = "contador"
 
 const MENSAGENS = {
     sucesso: {
@@ -63,7 +72,7 @@ class Tela {
         elementosHtml.forEach(item => (item.src = img))
     }
     //por padrão iremos utilizar o sucesso = true
-    static exibirMensagem(sucesso = true) {
+    static async exibirMensagem(sucesso = true) {
         const elemento = document.getElementById(ID_MENSAGEM)
         if(sucesso){
             elemento.classList.remove(MENSAGENS.erro.classe)
@@ -75,5 +84,17 @@ class Tela {
             elemento.innerText = MENSAGENS.erro.texto
         }
         elemento.classList.remove(CLASSE_INVISIBLE)
+        //vamos fazer a mensagem desaparer depois de 1 segundo
+        await util.timeout(1000)
+        elemento.classList.add(CLASSE_INVISIBLE)
+    }
+
+    static exibirCarregando(mostrar = true ) {
+        const carregando = document.getElementById(ID_CARREGANDO)
+        if(mostrar) {
+            carregando.classList.remove(CLASSE_INVISIBLE)
+            return;
+        }
+        carregando.classList.add(CLASSE_INVISIBLE)
     }
 }

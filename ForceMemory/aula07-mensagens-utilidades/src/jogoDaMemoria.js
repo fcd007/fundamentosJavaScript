@@ -1,8 +1,9 @@
 class JogoDaMemoria {
     //se mandar um obj = {tela: 1, idade: 20, outros: 2}
     //ele ira ignorar o resto das propriedades e pegar somente a propriedade tela
-    constructor({ tela }) {
+    constructor({ tela, util }) {
         this.tela = tela
+        this.util = util
         //o caminho do arquivo relativo ao index.html
         this.heroisIniciais = [
             { img: './img/batman.png', nome:'batman'},
@@ -27,7 +28,7 @@ class JogoDaMemoria {
     }
 
      // lógica para embaralhar o jogo da memória
-     embaralhar() {
+     async embaralhar() {
         const copias = this.heroisIniciais
         //duplicar os itens
         .concat(this.heroisIniciais)
@@ -39,10 +40,13 @@ class JogoDaMemoria {
         .sort(() => Math.random() - 0.5)
         //vamos verificar se as imagens estão atualizando
         this.tela.atualizarImagens(copias)
+        //carregando game para iniciar
+        this.tela.exibirCarregando()
         //vamos fazer a tela esperar 1 segundo para atualizar
-        setTimeout(() => {
-            this.esconderHerois(copias)
-        }, 1000);
+        await this.util.timeout(1000)
+        this.esconderHerois(copias)
+        this.tela.exibirCarregando(false)
+
     }
     //ele vai trocar a imagem de todos os herois pela icone padrão
     //como fizemos no construtor, vamos  extrai somente o que
